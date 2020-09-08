@@ -1,39 +1,76 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+ # Cookbook #
+This repository contains the code for an online Cookbook application. It is primarily built using Python and the Flask framework
+## UX ##
+This application is built with a mobile first, responsive design in mind.
+User stories
+* As a new user, I should:
 
-Welcome jayabidwai96,
+   1	see a homepage with a hero image.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+   2	see a main navigation with links to main recipe categories.
 
-## Gitpod Reminders
+*	As a user who wishes to create a recipe, I should:
+   1	see a form allowing me to add the following fields:
+	       name, description, direction
+   2	choose a meal time i.e. breakfast/lunch/dinner etc.
+   3	servings per recipe.
+   4	cooking and preparation time.
+   5 	cuisine i.e. Irish, Italian etc.
+   6	see a add button to add the recipe
+*	As a user who wants to view all recipes, 
+  I should see a link to "all recipes" where I can see preview cards of each of the stored recipes, each displaying the following:
+1	thumbnail image.
+2	preview icon, to view basic recipe details i.e. prep time, cook time, description etc.
+3	link to the full recipe listing.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+*	As a user who wants to view  and add, edit or delete a certain category of recipes, 
+*	A a user who wants to view the full recipe listing, I should:
+1	click on a recipe card from the all recipes page and be taken to a page where I should:
+2	see a page detailing all recipe fields:
+3	title, description, direction.
+4	ingredients.
+5	meal time.
+6	servings per recipe.
+7	cooking and preparation time.
+8	cuisine.
+9	date/time entered or updated.
+10	edit/delete controls.
 
-`python3 -m http.server`
+*	As a user who wishes to see a shopping list - a helpful list which they can tick off as they collect items in a store - I should click on a shopping basket icon on the full recipe page.
+*	As a user who wants to delete a recipe, I should click an appropriate icon on the recipe's page which will remove the recipe form the database.
+*	As a user who wants to edit a recipe, I should click an appropriate icon on the recipe's page which will direct me to a form where I can edit all of the form fields and either submit the changes or cancel, returning to all recipes.
+*	As a user who wants to view all cuisines, I should see a link to "cuisines" where I can see a list of all cuisines, each displaying the following:
+*	cuisine name.
+*	edit button.
+*	delete button.
+*	As user who wants to add a cuisine, I should see a link on the cuisines page where i can see a form with the option to add a cuisine by title to the database.
 
-A blue button should appear to click: *Make Public*,
+## Testing, validation and styling ##
+ ## Testing ##
+1	The site was tested on all modern desktop and mobile browsers to ensure cross compatibility and functionality.
+2	The site was tested to be responsive and to ensure it would be correctly displayed across mobile devices.
+3	I ensured that each one of the user stories were thoroughly tested to be functional without errors.
+4	Testing for this project was implemented manually. 
+5	On the add recipe form all necessary fields i.e. title, cuisine etc. 
 
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+## Features overview ##
+1	Add a recipe.
+2	Edit recipes.
+3	Add catogeries.
+4	Edit catogeries.
+## Features I'd like to implement in future versions ##
+1	User authentication system
+2	Sharable recipes.
+3	Implement search caching/indexing.
+Challenges
+•	Learning how to integrate Flask and MongoDB was a great learning experience. I learned much from how to manage and interact with a NoSQL data store.
+•	Managing routes and URL's with Flask was also very interesting and I learned a great deal from reading the documentation around Flask and MongoDB.
+## Technologies Used ##
+1	HTML
+2	CSS
+3	JavaScript
+4	jQuery - for DOM manipulation.
+5	Materialize CSS – Materialize CSS is used as the primary CSS framework.
+6	Flask - Flask framework used to build the application.
+7	MongoDB - Relational database store for model data.
+8	Heroku - Platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
