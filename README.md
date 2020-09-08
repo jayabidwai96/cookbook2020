@@ -12,19 +12,28 @@ User stories
 *	As a user who wishes to create a recipe, I should:
    1	see a form allowing me to add the following fields:
 	       name, description, direction
+
    2	choose a meal time i.e. breakfast/lunch/dinner etc.
+
    3	servings per recipe.
+
    4	cooking and preparation time.
+
    5 	cuisine i.e. Irish, Italian etc.
+
    6	see a add button to add the recipe
+
 *	As a user who wants to view all recipes, 
+
   I should see a link to "all recipes" where I can see preview cards of each of the stored recipes, each displaying the following:
-1	thumbnail image.
-2	preview icon, to view basic recipe details i.e. prep time, cook time, description etc.
-3	link to the full recipe listing.
+   1	thumbnail image.
+   2	preview icon, to view basic recipe details i.e.description etc.
+   3	link to the full recipe listing.
 
 *	As a user who wants to view  and add, edit or delete a certain category of recipes, 
+
 *	A a user who wants to view the full recipe listing, I should:
+
 1	click on a recipe card from the all recipes page and be taken to a page where I should:
 2	see a page detailing all recipe fields:
 3	title, description, direction.
@@ -33,16 +42,11 @@ User stories
 6	servings per recipe.
 7	cooking and preparation time.
 8	cuisine.
-9	date/time entered or updated.
-10	edit/delete controls.
+
 
 *	As a user who wishes to see a shopping list - a helpful list which they can tick off as they collect items in a store - I should click on a shopping basket icon on the full recipe page.
 *	As a user who wants to delete a recipe, I should click an appropriate icon on the recipe's page which will remove the recipe form the database.
 *	As a user who wants to edit a recipe, I should click an appropriate icon on the recipe's page which will direct me to a form where I can edit all of the form fields and either submit the changes or cancel, returning to all recipes.
-*	As a user who wants to view all cuisines, I should see a link to "cuisines" where I can see a list of all cuisines, each displaying the following:
-*	cuisine name.
-*	edit button.
-*	delete button.
 *	As user who wants to add a cuisine, I should see a link on the cuisines page where i can see a form with the option to add a cuisine by title to the database.
 
 ## Testing, validation and styling ##
