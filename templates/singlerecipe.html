@@ -1,18 +1,67 @@
-{% extends 'base.html' %} {% block recipe %}
-<div class="col s6 m4">
-            <div class="card blue-grey darken-1 hoverable">
-                <div class="card-image">
-                    <img src="/static/img/breakfast.jpg" class="responsive-img">
+{% extends 'base.html' %}{% block content %}
+<div class="container">
+    <div class="row ">
+        <div class="col s12 m12 l7 offset-l2 margin-bottom-5vh">
+            {% for recipe in recipes %}
+            <div class="col l12">
+                <div class="card hoverable">
+                    <div class="card-content">
+                        <h4><span class="card-title"><strong class="strong-text"><a href="{{url_for('single_recipe', recipe_id=recipe._id)}}"
+                                        class="recipe-title-text">{{recipe.name}}</a></strong></span></h4>                        
+                        <li class="divider"></li>
+                        <br>
+                        <p>{{recipe.description}}</p><br>                        
+                    </div>
                 </div>
-                <div class="card-action card-action-bgcolor">
-                    <a href="{{url_for('full_recipe')}}" class="hvr-grow">View</a>
+                <div class="row">
+                    <div class="col s12 l6">
+                        <div class="card hoverable card-min-height">
+                            <div class="card-content">
+                                <strong>Ingredients: </strong>
+                                <li class="divider"></li>
+                                {% for ingredient in recipe.ingredient %}
+                                <p><strong>- {{ingredient}} </strong>
+                                {% endfor %}                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 l6">
+                        <div class="card hoverable card-min-height">
+                            <div class="card-content">
+                                <strong>Details:</strong>
+                                <li class="divider"></li>
+                                <strong>- Preparation time: </strong>{{recipe['prep-time']}} mins. <br>
+                                <strong>- Cooking time: </strong>{{recipe['cooking-time']}} mins. <br>
+                                <strong>- Serves: </strong>{{recipe.serves}} people. <br>
+                                <strong>- Meal time: </strong>{{recipe.meal}} <br>
+                                <strong>- Cuisine: </strong>{{recipe.cuisine}} <br>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card hoverable">
+                    <div class="card-content">
+                        <strong>Method:</strong>
+                        <li class="divider"></li>
+                        {{recipe.direction}}
+                    </div>
+                </div>
+                
+                <div class="card-action card-action-icons">
+                                     
+                    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="hvr-grow waves-effect waves-light btn btn_small blue tooltipped float-right"
+                        data-position="bottom" data-tooltip="Edit"><i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="hvr-grow waves-effect waves-light btn btn_small red tooltipped"
+                        data-position="bottom" data-tooltip="Delete"><i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
+            {% endfor %}
         </div>
-           
-      
 
-
-    
+    </div>
+</div>
 
 {% endblock %}
