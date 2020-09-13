@@ -1,4 +1,3 @@
-  
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -16,29 +15,22 @@ mongo = PyMongo(app)
 def home_page():
     return render_template("home.html")
 
-
-
-    
+# RECIPE
+# Gets recipes from mongo 
 @app.route('/get_recipes')
 def get_recipes():
     return render_template("recipes.html", 
                            recipes=mongo.db.recipes.find())
 
 
+# Add recipe in database
 @app.route('/add_recipe')
 def add_recipe():
     return render_template('addrecipe.html',
                          categories=mongo.db.categories.find())
 
 
-
-@app.route('/single_recipe')
-def single_recipe():
-    return render_template('singlerecipe.html',
-                           categories=mongo.db.categories.find())
-                           
-
-
+# Read full decription of single recipe
 @app.route('/recipe/<recipe_id>')
 def recipe_description(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -46,6 +38,7 @@ def recipe_description(recipe_id):
 
 
 
+# Inserting recipes into database
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes =  mongo.db.recipes
@@ -53,6 +46,7 @@ def insert_recipe():
     return redirect(url_for('get_recipes'))
 
 
+# Updating recipe in database
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -61,6 +55,7 @@ def edit_recipe(recipe_id):
                            categories=all_categories)
 
 
+# Updating recipes after editing
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
@@ -72,43 +67,33 @@ def update_recipe(recipe_id):
         'recipe_ingredient':request.form.get('recipe_ingredient'),
         'recipe_direction':request.form.get('recipe_direction'),
         'post_date': request.form.get('post_date'),
-        
     })
     return redirect(url_for('get_recipes'))
 
 
+# deleting recipe
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
 
 
+
+# CATEGORIES
+# list all category in databases
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html',
                            categories=mongo.db.categories.find())
 
 
-@app.route('/delete_category/<category_id>')
-def delete_category(category_id):
-    mongo.db.categories.remove({'_id': ObjectId(category_id)})
-    return redirect(url_for('get_categories'))
+# Render template for adding new category
+@app.route('/add_category')
+def add_category():
+    return render_template('addcategory.html')  
 
 
-@app.route('/edit_category/<category_id>')
-def edit_category(category_id):
-    return render_template('editcategory.html',
-    category=mongo.db.categories.find_one({'_id': ObjectId(category_id)}))
-
-
-@app.route('/update_category/<category_id>', methods=['POST'])
-def update_category(category_id):
-    mongo.db.categories.update(
-        {'_id': ObjectId(category_id)},
-        {'category_name': request.form.get('category_name')})
-    return redirect(url_for('get_categories'))
-
-
+# Insert new category into database
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
     category_doc = {'category_name': request.form.get('category_name')}
@@ -116,15 +101,72 @@ def insert_category():
     return redirect(url_for('get_categories'))
 
 
-@app.route('/add_category')
-def add_category():
-    return render_template('addcategory.html')
+# Upadting category in database
+@app.route('/edit_category/<category_id>')
+def edit_category(category_id):
+    return render_template('editcategory.html',
+    category=mongo.db.categories.find_one({'_id': ObjectId(category_id)}))
 
-@app.route('/shopping_list/<recipe_id>')
-def shopping_list(recipe_id):
-    return render_template("shoppinglist.html",
-                           recipes=mongo.db.recipes.find({
-                               '_id': ObjectId(recipe_id)}))    
+
+# Updating category after editing
+@app.route('/update_category/<category_id>', methods=['POST'])
+def update_category(category_id):
+    mongo.db.categories.update(
+        {'_id': ObjectId(category_id)},
+        {'category_name': request.form.get('category_name')})
+    return redirect(url_for('get_categories'))
+    
+    
+# Render template for deleting category
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    mongo.db.categories.remove({'_id': ObjectId(category_id)})
+    return redirect(url_for('get_categories'))
+
+
+# CUISINES
+# list all cuisines in databases
+@app.route('/get_cuisines')
+def get_cuisines():
+    return render_template('cuisines.html',
+                           categories=mongo.db.cuisines.find())
+
+
+# Render template for adding new category
+@app.route('/add_cuisine')
+def add_cuisine():
+    return render_template('addcuisine.html')  
+
+
+# Insert new category into database
+@app.route('/insert_cuisine', methods=['POST'])
+def insert_cuisine():
+    cuisine_doc = {'cuisine_name': request.form.get('cuisine_name')}
+    mongo.db.cuisines.insert_one(cuisine_doc)
+    return redirect(url_for('get_cuisines'))
+
+
+# Upadting category in database
+@app.route('/edit_cuisine/<cuisine_id>')
+def edit_cuisine(cuisine_id):
+    return render_template('editcuisine.html',
+    cuisine=mongo.db.cuisines.find_one({'_id': ObjectId(cuisine_id)}))
+
+
+# Updating category after editing
+@app.route('/update_cuisine/<cuisine_id>', methods=['POST'])
+def update_cuisine(cuisine_id):
+    mongo.db.cuisines.update(
+        {'_id': ObjectId(cuisine_id)},
+        {'cuisine_name': request.form.get('cuisine_name')})
+    return redirect(url_for('get_cuisines'))
+    
+    
+# Render template for deleting category
+@app.route('/delete_cuisine/<cuisine_id>')
+def delete_cuisine(cuisine_id):
+    mongo.db.cuisines.remove({'_id': ObjectId(cuisine_id)})
+    return redirect(url_for('get_cuisines'))
 
 
 

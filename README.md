@@ -7,14 +7,14 @@ This repository contains the code for an online Cookbook application. It is prim
  This application is built with a mobile first, responsive design in mind.
 * User stories 
 
-1 Any user has full access to the site, there is no login to the site.
+1  Any user has full access to the site, there is no login to the site.
 
-2 The user will immediately be presented with all the recipes.
+2  The user will immediately be presented with all the recipes.
 
-3 They can click on a list tab and a small description will display below, they can also click on the title and be taken to a page detailing every aspect of the recipe.
+3  They can click on a list tab and a small description will display below, they can also click on the title and be taken to a page detailing every aspect of the recipe.
 
-4 Any user can create create, update or delete any recipe.
-5 A user name is only requested when creating or editing a recipe, and this is just for record keeping.
+4  Any user can create create, update or delete any recipe.
+5  A user name is only requested when creating or editing a recipe, and this is just for record keeping.
 
 6 Any user can create, update or delete entries for Categories also. No username is required for these entries.
 
@@ -91,5 +91,5 @@ This repository contains the code for an online Cookbook application. It is prim
 
  2	Unsplash for images.
 
- 3 [Allrcipes](https://www.allrecipes.com/)  for helping me fill the database with entries.
+ 3 [Allrecipes](https://www.allrecipes.com/)  for helping me fill the database with entries.
 
