@@ -75,7 +75,7 @@ This repository contains the code for an online Cookbook application. It is prim
 
 ##  Deployment ##
 
-*	A live version of this app is available here().
+*	A live version of this app is available [here](https://cook-book2020.herokuapp.com/).
 
 * Project was deployed to heroku with ease.
 * Created Procfile and requirements.txt for dependencies.
